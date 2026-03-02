@@ -44,7 +44,7 @@
         .e5-subtitle {
             color: var(--text-muted, #a1a1aa);
             font-size: 1.2rem;
-            margin-bottom: 50px;
+            margin-bottom: 30px;
             max-width: 600px;
             line-height: 1.5;
         }
@@ -56,13 +56,17 @@
             justify-content: center;
             background: linear-gradient(135deg, #bf5af2, #8e2de2);
             color: white;
-            padding: 20px 45px;
+            padding: 15px 35px;
             border-radius: 50px;
-            font-size: 1.4rem;
+            font-size: 1.2rem;
             font-weight: 600;
             text-decoration: none;
             transition: all 0.3s ease;
             box-shadow: 0 10px 30px rgba(191, 90, 242, 0.4);
+            border: none; /* Nécessaire car on utilise la balise <button> maintenant */
+            cursor: pointer;
+            font-family: inherit;
+            margin-top: 30px;
         }
 
         .btn-powerpoint:hover {
@@ -73,7 +77,14 @@
 
         .btn-icon {
             margin-right: 15px;
-            font-size: 1.8rem;
+            font-size: 1.5rem;
+        }
+
+        /* Ajout d'une ombre et d'arrondis sur la présentation pour un côté plus premium */
+        #presentation-iframe {
+            border-radius: 12px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
     </style>
 </head>
@@ -102,13 +113,32 @@
         <h1 class="e5-title">Épreuve E5</h1>
         <p class="e5-subtitle">Présentation des projets techniques et solutions d'infrastructure, systèmes et réseaux.</p>
         
-       <iframe src="https://gamma.app/embed/4vm6pga61rprfmo" style="width: 700px; max-width: 100%; height: 450px" allow="fullscreen" title="Épreuve E5 - Support et mise à disposition de services informatiques"></iframe>
+        <iframe id="presentation-iframe" src="https://gamma.app/embed/4vm6pga61rprfmo" style="width: 800px; max-width: 100%; height: 450px; border: none;" allow="fullscreen" title="Épreuve E5 - Support et mise à disposition de services informatiques"></iframe>
+    
+        <button onclick="openFullscreen()" class="btn-powerpoint">
+            <span class="btn-icon">🖥️</span> Mettre en plein écran
+        </button>
     </main>
 
     <script>
+        // Fonction pour le menu mobile
         function toggleMenu() {
             const navLinks = document.querySelector('.nav-links');
             navLinks.classList.toggle('active');
+        }
+
+        // Fonction pour mettre la présentation en plein écran
+        function openFullscreen() {
+            var elem = document.getElementById("presentation-iframe");
+            
+            // Compatibilité avec les différents navigateurs
+            if (elem.requestFullscreen) {
+                elem.requestFullscreen();
+            } else if (elem.webkitRequestFullscreen) { /* Safari */
+                elem.webkitRequestFullscreen();
+            } else if (elem.msRequestFullscreen) { /* IE11 */
+                elem.msRequestFullscreen();
+            }
         }
     </script>
 
