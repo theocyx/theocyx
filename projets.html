@@ -3,58 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projets & Stages E4/E5 | Théo Cayeux</title>
+    <title>Épreuve E5 | Théo Cayeux</title>
     <link rel="icon" type="image/png" href="favicon.png">
     
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     
     <style>
-        /* CSS SPÉCIFIQUE POUR CETTE PAGE */
-        .section-title {
-            margin-top: 60px;
-            margin-bottom: 30px;
-            font-size: 2rem;
-            border-left: 4px solid var(--accent);
-            padding-left: 15px;
-        }
-        
-        .project-header {
+        /* S'assure que la page prend toute la hauteur pour centrer le contenu */
+        body {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 15px;
-        }
-        
-        /* Badges de couleur pour distinguer visuellement */
-        .badge {
-            padding: 5px 12px;
-            border-radius: 12px;
-            font-size: 0.8rem;
-            font-weight: 700;
-            text-transform: uppercase;
-        }
-        .badge-stage { background-color: #2997ff; color: white; } /* Bleu */
-        .badge-projet { background-color: #bf5af2; color: white; } /* Violet */
-        
-        .project-desc {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            margin-bottom: 20px;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+            background-color: var(--bg-color, #0a0a0a);
         }
 
-        .btn-doc {
-            display: inline-block;
-            border: 1px solid var(--text-muted);
-            padding: 8px 20px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            transition: 0.3s;
-            margin-top: 15px;
+        /* Conteneur principal centré */
+        .e5-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            margin-top: -50px; /* Compense la navbar pour un centrage parfait */
         }
-        .btn-doc:hover {
-            border-color: var(--text-main);
-            background: rgba(255,255,255,0.1);
+
+        .e5-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            /* Effet de texte en dégradé */
+            background: linear-gradient(90deg, #bf5af2, #ff2a5f);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .e5-subtitle {
+            color: var(--text-muted, #a1a1aa);
+            font-size: 1.2rem;
+            margin-bottom: 50px;
+            max-width: 600px;
+            line-height: 1.5;
+        }
+
+        /* Style du gros bouton PowerPoint */
+        .btn-powerpoint {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #bf5af2, #8e2de2);
+            color: white;
+            padding: 20px 45px;
+            border-radius: 50px;
+            font-size: 1.4rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(191, 90, 242, 0.4);
+        }
+
+        .btn-powerpoint:hover {
+            transform: translateY(-5px) scale(1.03);
+            box-shadow: 0 15px 40px rgba(191, 90, 242, 0.6);
+            color: white;
+        }
+
+        .btn-icon {
+            margin-right: 15px;
+            font-size: 1.8rem;
         }
     </style>
 </head>
@@ -70,118 +89,23 @@
         </div>
 
         <div class="nav-links">
-            <a href="#experience">Expériences</a>
-            <a href="#competences">Compétences</a>
-            <a href="#formation">Formations</a>
+            <a href="index.html#experience">Expériences</a>
+            <a href="index.html#competences">Compétences</a>
+            <a href="index.html#formation">Formations</a>
             <a href="projets.html">Projets</a>
             <a href="cv.html">Mon CV</a>
             <a href="contact.html">Contact</a>
         </div>
     </nav>
 
-    <header class="hero" style="height: 40vh; min-height: 300px;">
-        <h1>Portfolio E4 & E5</h1>
-        <p>Retrouvez ici mes situations professionnelles (Stages) <br>et mes projets techniques (École/Labo).</p>
-    </header>
-
-    <section>
+    <main class="e5-container">
+        <h1 class="e5-title">Épreuve E5</h1>
+        <p class="e5-subtitle">Présentation des projets techniques et solutions d'infrastructure, systèmes et réseaux.</p>
         
-        <h2 class="section-title">📂 Mes Stages (E4)</h2>
-        <div class="grid-container">
-            
-            <div class="card">
-                <div class="project-header">
-                    <span class="date">IGBMC • 2ème Année</span>
-                    <span class="badge badge-stage">Stage</span>
-                </div>
-                <h3>Technicien Support & Parc</h3>
-                <p class="project-desc">
-                    Stage de 2ème année au sein de l'Institut de génétique et de biologie moléculaire et cellulaire.
-                </p>
-                <ul>
-                    <li>Gestion des tickets incidents (Niveau 1 & 2)</li>
-                    <li>Préparation et déploiement de postes</li>
-                    <li>Administration Active Directory</li>
-                </ul>
-                <a href="docs/fiche-e4-igbmc.pdf" target="_blank" class="btn-doc">Voir la fiche de situation (PDF)</a>
-            </div>
-
-            <div class="card">
-                <div class="project-header">
-                    <span class="date">EMHA GROUPE • 1ère Année</span>
-                    <span class="badge badge-stage">Stage</span>
-                </div>
-                <h3>Assistant Administrateur Système</h3>
-                <p class="project-desc">
-                    Premier stage de BTS. Intervention sur site et maintenance préventive.
-                </p>
-                <ul>
-                    <li>MCO (Maintien en Condition Opérationnelle)</li>
-                    <li>Support utilisateur à distance</li>
-                    <li>Documentation technique</li>
-                </ul>
-                <a href="docs/fiche-e4-emha.pdf" target="_blank" class="btn-doc">Voir la fiche de situation (PDF)</a>
-            </div>
-
-        </div>
-
-
-        <h2 class="section-title" style="border-color: #bf5af2;">🚀 Projets Techniques (E5)</h2>
-        <div class="grid-container">
-            
-            <div class="card">
-                <div class="project-header">
-                    <span class="date">Projet École • PPE</span>
-                    <span class="badge badge-projet">Projet E5</span>
-                </div>
-                <h3>Infrastructure Active Directory</h3>
-                <p class="project-desc">
-                    Mise en place d'un domaine complet sous Windows Server 2019.
-                </p>
-                <ul>
-                    <li>Installation AD DS, DNS, DHCP</li>
-                    <li>Création de GPO (Sécurité, Mappage)</li>
-                    <li>Scripts PowerShell d'automatisation</li>
-                </ul>
-                <a href="docs/doc-projet-ad.pdf" target="_blank" class="btn-doc">Voir la documentation</a>
-            </div>
-
-            <div class="card">
-                <div class="project-header">
-                    <span class="date">Projet École • GLPI</span>
-                    <span class="badge badge-projet">Projet E5</span>
-                </div>
-                <h3>Solution de Ticketing GLPI</h3>
-                <p class="project-desc">
-                    Déploiement d'un serveur LAMP (Linux Apache MySQL PHP) pour héberger GLPI.
-                </p>
-                <ul>
-                    <li>Installation Debian & hardening SSH</li>
-                    <li>Configuration du serveur Web Apache</li>
-                    <li>Liaison LDAP avec l'Active Directory</li>
-                </ul>
-                <a href="docs/doc-projet-glpi.pdf" target="_blank" class="btn-doc">Voir la documentation</a>
-            </div>
-
-             <div class="card">
-                <div class="project-header">
-                    <span class="date">Labo Perso</span>
-                    <span class="badge badge-projet">Projet Perso</span>
-                </div>
-                <h3>Supervision Zabbix</h3>
-                <p class="project-desc">
-                    Mise en place d'une supervision pour monitorer l'état des serveurs et switchs.
-                </p>
-                <ul>
-                    <li>Installation du serveur Zabbix</li>
-                    <li>Configuration des agents et SNMP</li>
-                    <li>Création de tableaux de bord et alertes</li>
-                </ul>
-                <a href="docs/doc-projet-zabbix.pdf" target="_blank" class="btn-doc">Voir la documentation</a>
-            </div>
-
-        </div>
-    </section>
+        <a href="docs/Diaporama_E5_Theo_Cayeux.pptx" target="_blank" class="btn-powerpoint">
+            <span class="btn-icon">📊</span> Lancer le Diaporama E5
+        </a>
+    </main>
 
     <script>
         function toggleMenu() {
