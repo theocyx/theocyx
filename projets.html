@@ -10,17 +10,21 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     
     <style>
-        /* S'assure que la page prend toute la hauteur pour centrer le contenu */
+        /* Animation d'apparition fluide (comme sur la page contact) */
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
         body {
+            height: 100vh;
             display: flex;
             flex-direction: column;
-            min-height: 100vh;
             margin: 0;
             background-color: var(--bg-color, #0a0a0a);
         }
 
-        /* Conteneur principal centré */
-        .e5-container {
+        .e5-wrapper {
             flex: 1;
             display: flex;
             flex-direction: column;
@@ -28,63 +32,36 @@
             align-items: center;
             text-align: center;
             padding: 20px;
-            margin-top: -50px; /* Compense la navbar pour un centrage parfait */
+            margin-top: -30px; /* Ajustement pour centrer visuellement avec la navbar */
+            animation: fadeIn 1s ease-out; /* Application de l'animation */
         }
 
+        /* Style de titre identique à la page contact */
         .e5-title {
             font-size: 3.5rem;
             font-weight: 700;
+            letter-spacing: -1.5px;
             margin-bottom: 15px;
-            /* Effet de texte en dégradé */
-            background: linear-gradient(90deg, #bf5af2, #ff2a5f);
+            background: linear-gradient(180deg, #fff, #888);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
+        /* Style de texte identique à la page contact */
         .e5-subtitle {
-            color: var(--text-muted, #a1a1aa);
             font-size: 1.2rem;
-            margin-bottom: 30px;
+            color: var(--text-muted);
             max-width: 600px;
-            line-height: 1.5;
+            margin-bottom: 40px;
+            line-height: 1.6;
         }
 
-        /* Style du gros bouton PowerPoint */
-        .btn-powerpoint {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, #bf5af2, #8e2de2);
-            color: white;
-            padding: 15px 35px;
-            border-radius: 50px;
-            font-size: 1.2rem;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(191, 90, 242, 0.4);
-            border: none;
-            cursor: pointer;
-            font-family: inherit;
-            margin-top: 30px;
-        }
-
-        .btn-powerpoint:hover {
-            transform: translateY(-5px) scale(1.03);
-            box-shadow: 0 15px 40px rgba(191, 90, 242, 0.6);
-            color: white;
-        }
-
-        .btn-icon {
-            margin-right: 15px;
-            font-size: 1.5rem;
-        }
-
-        /* Ajout d'une ombre et d'arrondis sur la présentation pour un côté plus premium */
+        /* Style de la présentation Iframe */
         #presentation-iframe {
             border-radius: 12px;
             box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
             border: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 40px; /* Espace entre la présentation et le bouton */
         }
     </style>
 </head>
@@ -109,17 +86,21 @@
         </div>
     </nav>
 
-    <main class="e5-container">
-        <h1 class="e5-title">Épreuve E5</h1>
-        <p class="e5-subtitle">Présentation des projets techniques et solutions d'infrastructure, systèmes et réseaux.</p>
+    <section class="e5-wrapper">
+        <h1 class="e5-title">Épreuve E5.</h1>
+        
+        <p class="e5-subtitle">
+            Présentation des projets techniques et solutions d'infrastructure, systèmes et réseaux.
+        </p>
             
-        <a href="Diaporama_E5_Theo_Cayeux.pptx" download="Diaporama_E5_Theo_Cayeux.pptx" class="btn-powerpoint">
-            <span class="btn-icon">📥</span> Télécharger le PowerPoint
+        <iframe id="presentation-iframe" src="https://gamma.app/embed/4vm6pga61rprfmo" style="width: 800px; max-width: 100%; height: 450px; border: none;" allow="fullscreen" title="Épreuve E5 - Support et mise à disposition de services informatiques"></iframe>
+    
+        <a href="Diaporama_E5_Theo_Cayeux.pptx" download="Diaporama_E5_Theo_Cayeux.pptx" class="btn-cta" style="font-size: 1.1rem; padding: 15px 40px; text-decoration: none;">
+            Télécharger le PowerPoint
         </a>
-    </main>
+    </section>
 
     <script>
-        // Fonction pour le menu mobile
         function toggleMenu() {
             const navLinks = document.querySelector('.nav-links');
             navLinks.classList.toggle('active');
