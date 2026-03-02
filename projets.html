@@ -63,7 +63,7 @@
             text-decoration: none;
             transition: all 0.3s ease;
             box-shadow: 0 10px 30px rgba(191, 90, 242, 0.4);
-            border: none; /* Nécessaire car on utilise la balise <button> maintenant */
+            border: none;
             cursor: pointer;
             font-family: inherit;
             margin-top: 30px;
@@ -112,12 +112,10 @@
     <main class="e5-container">
         <h1 class="e5-title">Épreuve E5</h1>
         <p class="e5-subtitle">Présentation des projets techniques et solutions d'infrastructure, systèmes et réseaux.</p>
-        
-        <iframe id="presentation-iframe" src="https://gamma.app/embed/4vm6pga61rprfmo" style="width: 800px; max-width: 100%; height: 450px; border: none;" allow="fullscreen" title="Épreuve E5 - Support et mise à disposition de services informatiques"></iframe>
-    
-        <button onclick="openFullscreen()" class="btn-powerpoint">
-            <span class="btn-icon">🖥️</span> Mettre en plein écran
-        </button>
+            
+        <a href="Diaporama_E5_Theo_Cayeux.pptx" download="Diaporama_E5_Theo_Cayeux.pptx" class="btn-powerpoint">
+            <span class="btn-icon">📥</span> Télécharger le PowerPoint
+        </a>
     </main>
 
     <script>
@@ -125,20 +123,6 @@
         function toggleMenu() {
             const navLinks = document.querySelector('.nav-links');
             navLinks.classList.toggle('active');
-        }
-
-        // Fonction pour mettre la présentation en plein écran
-        function openFullscreen() {
-            var elem = document.getElementById("presentation-iframe");
-            
-            // Compatibilité avec les différents navigateurs
-            if (elem.requestFullscreen) {
-                elem.requestFullscreen();
-            } else if (elem.webkitRequestFullscreen) { /* Safari */
-                elem.webkitRequestFullscreen();
-            } else if (elem.msRequestFullscreen) { /* IE11 */
-                elem.msRequestFullscreen();
-            }
         }
     </script>
 
