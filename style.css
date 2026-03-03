@@ -294,15 +294,15 @@ section h2 {
 }
 
 /* =========================================
-   FOOTER (PIED DE PAGE)
+   FOOTER (PIED DE PAGE COMPACT)
    ========================================= */
 .footer {
     width: 100%;
     background-color: #0d0d0d;
-    padding: 40px 20px;
+    padding: 20px 0; /* Réduit de 40px à 20px pour affiner la bande */
     text-align: center;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
-    margin-top: 80px;
+    margin-top: 60px; /* Un peu moins d'espace avant le footer aussi */
     position: relative;
     z-index: 10;
 }
@@ -311,53 +311,43 @@ section h2 {
     max-width: 1200px;
     margin: 0 auto;
     display: flex;
-    flex-direction: column;
-    align-items: center; /* Centre horizontalement */
-    gap: 15px;
+    flex-direction: column; /* Garde les éléments l'un sous l'autre */
+    align-items: center;
+    gap: 10px; /* Réduit l'espace entre le texte et les liens */
 }
 
-.footer p { color: #888; font-size: 0.9rem; margin: 0; }
+.footer p { 
+    color: #666; /* Texte un peu plus discret */
+    font-size: 0.8rem; /* Texte légèrement plus petit */
+    margin: 0; 
+}
 
 .footer-links {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 15px;
-    flex-wrap: wrap;
 }
 
-.footer-links a {
-    color: #f5f5f7;
-    font-size: 0.95rem;
-    font-weight: 500;
-    transition: color 0.3s;
-}
-
-.footer-links a:hover { color: var(--accent); text-decoration: underline; }
-.separator { color: #444; }
-
-/* Style du Bouton Mentions Légales */
+/* Ajustement du bouton Mentions Légales pour qu'il soit plus petit */
 .btn-mentions {
     display: inline-block;
-    padding: 10px 20px;
-    background-color: var(--card-bg); /* Utilise la couleur des cartes */
-    color: var(--text-main);
+    padding: 6px 15px; /* Bouton plus fin */
+    background-color: rgba(255, 255, 255, 0.05);
+    color: var(--text-muted);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 25px; /* Bouton arrondi */
-    font-weight: 600;
-    font-size: 0.9rem;
+    border-radius: 20px;
+    font-weight: 500;
+    font-size: 0.8rem; /* Texte du bouton plus petit */
     text-decoration: none;
     transition: all 0.3s ease;
-    cursor: pointer;
-    margin-top: 10px;
+    margin-top: 5px; /* Moins d'espace au-dessus du bouton */
 }
 
 .btn-mentions:hover {
-    background-color: var(--hover-bg); /* Change la couleur au survol */
+    background-color: var(--hover-bg);
+    color: var(--text-main);
     border-color: rgba(255, 255, 255, 0.3);
-    transform: translateY(-2px); /* Effet de soulèvement */
-    color: var(--accent); /* Texte en bleu au survol */
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
 /* =========================================
    MODALE (MENTIONS LÉGALES)
