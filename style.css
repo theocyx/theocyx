@@ -312,7 +312,7 @@ section h2 {
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: center; /* Centre horizontalement */
     gap: 15px;
 }
 
@@ -336,6 +336,29 @@ section h2 {
 .footer-links a:hover { color: var(--accent); text-decoration: underline; }
 .separator { color: #444; }
 
+/* Style du Bouton Mentions Légales */
+.btn-mentions {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: var(--card-bg); /* Utilise la couleur des cartes */
+    color: var(--text-main);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 25px; /* Bouton arrondi */
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.btn-mentions:hover {
+    background-color: var(--hover-bg); /* Change la couleur au survol */
+    border-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px); /* Effet de soulèvement */
+    color: var(--accent); /* Texte en bleu au survol */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
 /* =========================================
    MODALE (MENTIONS LÉGALES)
    ========================================= */
