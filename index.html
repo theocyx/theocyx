@@ -272,6 +272,32 @@
                 }
             });
         });
+		
+		// --- GESTION DE LA MODALE MENTIONS LÉGALES ---
+
+const modal = document.getElementById("modalMentions");
+
+// Fonction pour ouvrir
+function openModal(e) {
+    e.preventDefault(); // Empêche le lien de recharger la page
+    modal.classList.add('active'); // Ajoute la classe pour l'animation
+    document.body.style.overflow = 'hidden'; // Bloque le scroll du site derrière
+}
+
+// Fonction pour fermer
+function closeModal() {
+    modal.classList.remove('active');
+    setTimeout(() => {
+        document.body.style.overflow = 'auto'; // Réactive le scroll
+    }, 300); // Attend la fin de l'animation
+}
+
+// Fermer si on clique en dehors de la boîte (sur le fond noir)
+window.onclick = function(event) {
+    if (event.target == modal) {
+        closeModal();
+    }
+}
     </script>
 	
 <div id="modalMentions" class="modal">
