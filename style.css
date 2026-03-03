@@ -363,58 +363,75 @@ a.certif-card {
     transition: opacity 0.3s;
 }
 
-.certif-card:hover .view-link {
-    opacity: 1;
+/* Section Certifications */
+#certifications {
+    padding: 60px 20px;
+    max-width: 1100px;
+    margin: 0 auto;
 }
 
+.certif-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+/* Style de la Carte Blanche */
 .certif-card {
-    background: #1c1c1e;
-    border-radius: 16px;
-    padding: 24px;
+    background: #ffffff; /* Fond blanc comme tes cartes formation */
+    border-radius: 20px;
+    padding: 25px;
     display: flex;
     align-items: center;
     gap: 20px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-    transition: transform 0.3s ease;
+    text-decoration: none;
+    color: inherit;
     border: 1px solid #f0f0f2;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .certif-card:hover {
     transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
 }
 
+/* Conteneur de l'icône gris clair */
 .certif-icon {
-    font-size: 2rem;
-    background: #f5f5f7;
+    background: #f5f5f7; /* Gris clair Apple */
     width: 60px;
     height: 60px;
+    min-width: 60px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 12px;
+    border-radius: 15px;
+    font-size: 1.8rem;
 }
 
+/* Textes */
 .certif-info h4 {
-    margin: 0 0 5px 0;
+    margin: 0 0 4px 0;
     font-size: 1.1rem;
-    color: #1d1d1f;
+    color: #1d1d1f; /* Noir profond */
 }
 
 .certif-info p {
-    margin: 0 0 10px 0;
+    margin: 0 0 12px 0;
     font-size: 0.85rem;
-    color: #86868b;
+    color: #86868b; /* Gris texte secondaire */
 }
 
+/* Badge Obtenu Vert */
 .badge {
-    font-size: 0.75rem;
-    font-weight: 600;
-    padding: 4px 12px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 5px 12px;
     border-radius: 20px;
     text-transform: uppercase;
+    display: inline-block;
 }
 
 .status-done {
-    background: #e8f5e9;
-    color: #2e7d32;
+    background: #e8f5e9; /* Vert très clair */
+    color: #2e7d32; /* Vert foncé texte */
 }
