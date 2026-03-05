@@ -10,14 +10,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     
     <style>
-        /* Animation d'apparition fluide (comme sur la page contact) */
+        /* Animation d'apparition fluide */
         @keyframes fadeIn {
             0% { opacity: 0; transform: translateY(20px); }
             100% { opacity: 1; transform: translateY(0); }
         }
 
         body {
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
             margin: 0;
@@ -31,37 +31,67 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 20px;
-            margin-top: -30px; /* Ajustement pour centrer visuellement avec la navbar */
-            animation: fadeIn 1s ease-out; /* Application de l'animation */
+            padding: 120px 20px 60px 20px; /* Espace pour la navbar en haut */
+            animation: fadeIn 1s ease-out;
+            max-width: 800px;
+            margin: 0 auto;
         }
 
-        /* Style de titre identique à la page contact */
+        /* Style de titre */
         .e5-title {
             font-size: 3.5rem;
             font-weight: 700;
             letter-spacing: -1.5px;
-            margin-bottom: 15px;
+            margin-bottom: 50px;
             background: linear-gradient(180deg, #fff, #888);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        /* Style de texte identique à la page contact */
-        .e5-subtitle {
-            font-size: 1.2rem;
-            color: var(--text-muted);
-            max-width: 600px;
-            margin-bottom: 40px;
-            line-height: 1.6;
+        /* Conteneur pour espacer les deux blocs de téléchargement */
+        .e5-content-blocks {
+            display: flex;
+            flex-direction: column;
+            gap: 60px; /* Grand espace entre les deux parties */
+            width: 100%;
         }
 
-        /* Style de la présentation Iframe */
-        #presentation-iframe {
-            border-radius: 12px;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            margin-bottom: 40px; /* Espace entre la présentation et le bouton */
+        /* Style de texte */
+        .e5-subtitle {
+            font-size: 1.15rem;
+            color: var(--text-muted, #86868b);
+            margin-bottom: 25px;
+            line-height: 1.6;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Bouton Secondaire (style fantôme avec bordure) */
+        .btn-secondary {
+            display: inline-block;
+            padding: 14px 40px;
+            background-color: transparent;
+            color: var(--text-main, #f5f5f7);
+            border: 2px solid var(--text-main, #f5f5f7);
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--text-main, #f5f5f7);
+            color: var(--bg-color, #000000);
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(255,255,255,0.2);
+        }
+
+        /* Surcharge locale du bouton principal pour garantir la taille */
+        .btn-cta.large {
+            font-size: 1.1rem;
+            padding: 15px 40px;
+            text-decoration: none;
         }
     </style>
 </head>
@@ -90,13 +120,28 @@
     <section class="e5-wrapper">
         <h1 class="e5-title">Épreuve E5.</h1>
         
-        <p class="e5-subtitle">
-            Présentation des projets et réalisations réalisé pendant le BTS SIO pour l'épreuve E5.
-        </p>
+        <div class="e5-content-blocks">
             
-        <a href="Diaporama_E5_Theo_Cayeux.pptx" download="Diaporama_E5_Theo_Cayeux.pptx" class="btn-cta" style="font-size: 1.1rem; padding: 15px 40px; text-decoration: none;">
-            Télécharger le PowerPoint
-        </a>
+            <div class="e5-block">
+                <p class="e5-subtitle">
+                    Présentation des projets et réalisations réalisés pendant le BTS SIO pour l'épreuve E5.
+                </p>
+                <a href="Diaporama_E5_Theo_Cayeux.pptx" download="Diaporama_E5_Theo_Cayeux.pptx" class="btn-cta large">
+                    Télécharger le PowerPoint
+                </a>
+            </div>
+
+            <div class="e5-block">
+                <p class="e5-subtitle">
+                    Le tableau de synthèse au format national recense l'ensemble de mes réalisations, les compétences mobilisées
+                    et les productions associées. Il constitue un livrable obligatoire de l'épreuve E5.
+                </p>
+                <a href="Nom_du_fichier.pdf" target="_blank" class="btn-secondary">
+                    Télécharger le Tableau de Synthèse
+                </a>
+            </div>
+
+        </div>
     </section>
 
     <script>
