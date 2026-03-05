@@ -193,10 +193,12 @@ section h2 {
     color: var(--accent); 
 }
 
-/* Bento Grid (Compétences) */
+/* =========================================
+   BENTO GRID (COMPÉTENCES) - CORRIGÉ
+   ========================================= */
 .bento-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr); /* Grille de 3 colonnes */
     gap: 20px;
 }
 
@@ -211,14 +213,92 @@ section h2 {
     transition: transform 0.3s ease, background-color 0.3s;
 }
 
+/* Distribution en quinconce pour éviter les trous sur PC */
+.bento-item:nth-child(1) { grid-column: span 2; } /* Ligne 1 : 2 colonnes */
+.bento-item:nth-child(2) { grid-column: span 1; } /* Ligne 1 : 1 colonne */
+.bento-item:nth-child(3) { grid-column: span 1; } /* Ligne 2 : 1 colonne */
+.bento-item:nth-child(4) { grid-column: span 2; } /* Ligne 2 : 2 colonnes */
+
 .bento-item:hover {
     transform: translateY(-5px);
     background-color: var(--hover-bg);
 }
 
-.bento-item h4 { color: var(--text-main); margin-bottom: 15px; font-size: 1.2rem; }
-.bento-item ul li { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 5px; }
+.bento-item h4 { 
+    color: var(--text-main); 
+    margin-bottom: 15px; 
+    font-size: 1.2rem; 
+}
 
+.bento-item ul li { 
+    color: var(--text-muted); 
+    font-size: 0.9rem; 
+    margin-bottom: 5px; 
+}
+
+/* Style des mots en gras (labels) dans la liste */
+.bento-item ul li strong {
+    color: #d1d5db; /* Gris très clair pour contraster */
+    font-weight: 600;
+}
+
+.bento-item p { 
+    color: var(--text-muted); 
+    font-size: 0.9rem; 
+    margin: 0; 
+}
+
+/* =========================================
+   RESPONSIVE (MOBILE & TABLETTE)
+   ========================================= */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Ajustement intermédiaire pour les tablettes */
+@media (max-width: 900px) {
+    .bento-grid { grid-template-columns: repeat(2, 1fr); }
+    /* Sur tablette, les blocs larges prennent 2 colonnes, les petits 1 */
+    .bento-item:nth-child(1),
+    .bento-item:nth-child(4) { grid-column: span 2; }
+    .bento-item:nth-child(2),
+    .bento-item:nth-child(3) { grid-column: span 1; }
+}
+
+/* Format pour les téléphones */
+@media (max-width: 768px) {
+    .hero h1 { font-size: 2.5rem; }
+    
+    .menu-toggle { display: flex; }
+    
+    .nav-links {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: var(--navbar-height);
+        left: 0;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.95);
+        backdrop-filter: blur(20px);
+        padding: 20px 0;
+        gap: 25px;
+        transform: translateY(-200%);
+        transition: transform 0.4s ease;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    
+    .nav-links.active { transform: translateY(0); }
+    
+    .nav-links a { margin-left: 0; width: 100%; text-align: center; display: block; }
+    
+    .navbar { padding: 0 20px; }
+
+    /* Forcer tous les blocs bento à prendre 1 seule colonne sur mobile */
+    .bento-grid { grid-template-columns: 1fr; }
+    .bento-item,
+    .bento-item:nth-child(n) { grid-column: span 1 !important; }
+}
 
 /* =========================================
    SECTION CERTIFICATIONS (Style Corrigé)
