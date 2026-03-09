@@ -47,12 +47,20 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
+        
+        /* Style de sous-titre de section */
+        .section-title {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 20px;
+        }
 
-        /* Conteneur pour espacer les deux blocs de téléchargement */
+        /* Conteneur pour espacer les blocs */
         .e5-content-blocks {
             display: flex;
             flex-direction: column;
-            gap: 60px; /* Grand espace entre les deux parties */
+            gap: 60px; /* Grand espace entre les parties */
             width: 100%;
         }
 
@@ -92,6 +100,44 @@
             font-size: 1.1rem;
             padding: 15px 40px;
             text-decoration: none;
+            display: inline-block;
+            background-color: #f5f5f7; /* Couleur temporaire si non définie dans style.css */
+            color: #000;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-cta.large:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(255,255,255,0.2);
+        }
+
+        /* Style pour le conteneur du PDF */
+        .pdf-container {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto 25px auto;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            border: 1px solid #333;
+            background-color: #222; /* Fond sombre pendant le chargement */
+        }
+
+        .pdf-container iframe {
+            width: 100%;
+            height: 500px;
+            display: block;
+            border: none;
+        }
+        
+        /* Séparateur visuel */
+        .divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #333, transparent);
+            margin: 20px 0;
+            width: 100%;
         }
     </style>
 </head>
@@ -138,6 +184,23 @@
                 </p>
                 <a href="TABLEAU DE SYNTHESE.xlsx" target="_blank" class="btn-cta large">
                     Télécharger le Tableau de Synthèse
+                </a>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="e5-block">
+                <h2 class="section-title">Veille Technologique</h2>
+                <p class="e5-subtitle">
+                    Découvrez ma veille technologique et les outils mis en place pour suivre l'actualité informatique.
+                </p>
+                
+                <div class="pdf-container">
+                    <iframe src="veille.pdf" title="Présentation Veille Technologique"></iframe>
+                </div>
+
+                <a href="veille.pdf" target="_blank" class="btn-secondary">
+                    Ouvrir / Télécharger le PDF
                 </a>
             </div>
 
