@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Épreuve BTS SIO SISR E6 : Projets Lycée TechAvenir et Atelier68. Infrastructure haute disponibilité, segmentation réseau, supervision et Active Directory.">
+    <title>Épreuve E6 - TechAvenir & Atelier68 - Théo Cayeux</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="assets/css/Style.css">
+</head>
+<body>
+    <nav class="navbar" aria-labelledby="main-menu-title">
+        <h2 id="main-menu-title" class="visually-hidden">Menu principal</h2>
+        <div class="nav-container">
+            <a href="index.html" class="logo-container" aria-label="Accueil Théo Cayeux">
+                <span class="site-logo-text">Théo Cayeux</span>
+            </a>
+            <ul class="nav-links" role="list">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="presentation.html">Présentation</a></li>
+                <li><a href="epreuves.html" class="nav-active" aria-current="page">Épreuve E6</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="site-main content">
+        <section class="section hero-section">
+            <div class="hero-grid">
+                <div class="hero-copy">
+                    <p class="eyebrow">Épreuve BTS - Projet 1</p>
+                    <h1 class="hero-title">Lycée TechAvenir</h1>
+                    <p class="lead">
+                        Une infrastructure réseau sécurisée et à haute disponibilité pour un établissement scolaire. L'objectif : éliminer tout point de défaillance unique (SPOF) et isoler les services publics pour protéger les données internes.
+                    </p>
+                    <p class="lead lead-muted">
+                        J'ai conçu une architecture virtualisée sous VirtualBox intégrant un cluster de pare-feux, un portail web redondé en DMZ, et un environnement LAN complet (Active Directory, DHCP, Supervision, Inventaire).
+                    </p>
+                    <div class="tag-row" aria-label="Technologies utilisées">
+                        <span class="tag">pfSense (CARP)</span>
+                        <span class="tag">HAProxy</span>
+                        <span class="tag">Windows Server 2025</span>
+                        <span class="tag">Debian 12</span>
+                        <span class="tag">Zabbix</span>
+                        <span class="tag">GLPI</span>
+                        <span class="tag">Bash / API</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-divider">
+            <div class="section-heading">
+                <p class="eyebrow">Vue d'ensemble</p>
+                <h2 class="section-title">Architecture globale</h2>
+                <p class="section-intro">
+                    L'architecture repose sur un cluster pfSense en mode CARP. Le trafic public est dirigé vers une DMZ hébergeant un répartiteur de charge, tandis que le réseau administratif (LAN) est strictement isolé.
+                </p>
+            </div>
+            <div class="kpi-grid" role="list">
+                <article class="kpi-card" role="listitem">
+                    <span class="kpi-value">3</span>
+                    <span class="kpi-label">Zones réseau (WAN, LAN Admin, DMZ) cloisonnées</span>
+                </article>
+                <article class="kpi-card" role="listitem">
+                    <span class="kpi-value">2</span>
+                    <span class="kpi-label">Pare-feux pfSense synchronisés (Failover < 3s)</span>
+                </article>
+                <article class="kpi-card" role="listitem">
+                    <span class="kpi-value">1</span>
+                    <span class="kpi-label">Script d'automatisation Zabbix vers API GLPI (Ticketing)</span>
+                </article>
+            </div>
+            
+            <div class="topology-panel">
+                <div class="flow-track" role="list">
+                    <article class="flow-node" role="listitem">
+                        <p class="flow-zone">WAN</p>
+                        <h3>Accès Internet</h3>
+                        <p>Simulation de la connexion FAI avec translation d'adresse (NAT) vers le portail web.</p>
+                    </article>
+                    <article class="flow-node flow-node--core" role="listitem">
+                        <p class="flow-zone">Cœur de réseau</p>
+                        <h3>Cluster pfSense</h3>
+                        <p>Nœud Master et Backup avec IP Virtuelles (VIP), synchronisation d'état (pfsync) et failover DHCP.</p>
+                    </article>
+                    <article class="flow-node" role="listitem">
+                        <p class="flow-zone">DMZ</p>
+                        <h3>Web Haute Disponibilité</h3>
+                        <p>HAProxy distribue le flux HTTP/HTTPS sur deux serveurs web Apache (Web1 et Web2).</p>
+                    </article>
+                    <article class="flow-node" role="listitem">
+                        <p class="flow-zone">LAN Admin</p>
+                        <h3>Services d'infrastructure</h3>
+                        <p>Authentification AD/LDAP, résolution DNS, supervision Zabbix et gestion de parc GLPI.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-divider">
+            <div class="section-heading">
+                <p class="eyebrow">Services déployés</p>
+                <h2 class="section-title">Points différenciants</h2>
+            </div>
+            <div class="service-grid" role="list">
+                <article class="service-card" role="listitem">
+                    <span class="service-type">Haute Disponibilité</span>
+                    <h3>CARP & pfsync</h3>
+                    <p>Le routeur n'est plus un SPOF. Si pfSense-Master tombe, pfSense-Backup prend le relai instantanément sans couper les connexions en cours.</p>
+                </article>
+                <article class="service-card" role="listitem">
+                    <span class="service-type">Automatisation ITSM</span>
+                    <h3>API Zabbix & GLPI</h3>
+                    <p>Création d'un script Bash appelé par Zabbix générant automatiquement un ticket d'incident dans GLPI (via API REST) en cas d'hôte "DOWN".</p>
+                </article>
+                <article class="service-card" role="listitem">
+                    <span class="service-type">Sécurité</span>
+                    <h3>Authentification DMZ/LAN</h3>
+                    <p>Le portail web en DMZ s'authentifie auprès de l'Active Directory (LAN) via le port 389 (LDAP), seul flux autorisé en retour par le pare-feu.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="section section-divider">
+            <div class="hero-grid">
+                <div class="hero-copy">
+                    <p class="eyebrow">Épreuve BTS - Projet 2</p>
+                    <h2 class="hero-title">Atelier68</h2>
+                    <p class="lead">
+                        Conception et déploiement d'une infrastructure d'entreprise segmentée en quatre zones, intégrant un service d'annuaire complet et une zone web dédiée à la haute disponibilité.
+                    </p>
+                    <p class="lead lead-muted">
+                        Ce projet démontre une maîtrise de la segmentation réseau (VLANs internes VirtualBox), de la politique de sécurité (moindre privilège) et du déploiement de services sur environnements hétérogènes (Windows / Linux).
+                    </p>
+                    <div class="tag-row">
+                        <span class="tag">pfSense</span>
+                        <span class="tag">Windows Server 2025</span>
+                        <span class="tag">Debian 12</span>
+                        <span class="tag">HAProxy</span>
+                        <span class="tag">Apache</span>
+                        <span class="tag">GPO</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-divider">
+            <div class="section-heading">
+                <p class="eyebrow">Segmentation réseau</p>
+                <h2 class="section-title">4 Zones distinctes</h2>
+                <p class="section-intro">
+                    L'architecture s'appuie sur pfSense comme point de routage central, divisant le réseau pour isoler les services publics de l'administration interne.
+                </p>
+            </div>
+            <div class="zone-grid" role="list">
+                <article class="zone-card" role="listitem">
+                    <p class="zone-name">WAN</p>
+                    <h3>Accès externe</h3>
+                    <p class="zone-address">Réseau ponté (DHCP)</p>
+                    <ul class="detail-list">
+                        <li>NAT Port 80 vers DMZ.</li>
+                        <li>NAT Port 443 vers Zone WWW.</li>
+                    </ul>
+                </article>
+                <article class="zone-card" role="listitem">
+                    <p class="zone-name">LAN</p>
+                    <h3>192.168.10.0/24</h3>
+                    <p class="zone-address">Réseau de confiance</p>
+                    <ul class="detail-list">
+                        <li>Srv-ad (AD, DNS, DHCP).</li>
+                        <li>Srv-infra (Zabbix, GLPI).</li>
+                        <li>Postes clients sous Windows 10/11.</li>
+                    </ul>
+                </article>
+                <article class="zone-card" role="listitem">
+                    <p class="zone-name">DMZ</p>
+                    <h3>192.168.20.0/24</h3>
+                    <p class="zone-address">Zone semi-publique</p>
+                    <ul class="detail-list">
+                        <li>Héberge le site web vitrine (dmz-web).</li>
+                        <li>Isolement total : interdiction d'accéder au LAN.</li>
+                    </ul>
+                </article>
+                <article class="zone-card" role="listitem">
+                    <p class="zone-name">WWW</p>
+                    <h3>192.168.30.0/24</h3>
+                    <p class="zone-address">Haute Disponibilité Web</p>
+                    <ul class="detail-list">
+                        <li>Répartiteur HAProxy en point d'entrée.</li>
+                        <li>Deux nœuds de calcul (www3, www4).</li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+
+        <section class="section section-divider">
+            <div class="section-heading">
+                <p class="eyebrow">Inventaire technique</p>
+                <h2 class="section-title">Serveurs et rôles</h2>
+            </div>
+            <div class="host-grid" role="list">
+                <article class="host-card" role="listitem">
+                    <p class="host-name">Srv-ad (LAN)</p>
+                    <p class="host-ip">192.168.10.200</p>
+                    <p class="host-os">Windows Server 2025</p>
+                    <p class="host-role">Contrôleur de domaine atelier.lan, DNS, et distribution DHCP.</p>
+                </article>
+                <article class="host-card" role="listitem">
+                    <p class="host-name">Srv-infra (LAN)</p>
+                    <p class="host-ip">192.168.10.250</p>
+                    <p class="host-os">Debian 12</p>
+                    <p class="host-role">Centralisation ITSM avec GLPI et supervision réseau via Zabbix.</p>
+                </article>
+                <article class="host-card" role="listitem">
+                    <p class="host-name">dmz-web (DMZ)</p>
+                    <p class="host-ip">192.168.20.10</p>
+                    <p class="host-os">Debian 12</p>
+                    <p class="host-role">Serveur Apache public exposé via redirection de port (NAT) depuis pfSense.</p>
+                </article>
+                <article class="host-card" role="listitem">
+                    <p class="host-name">hap (WWW)</p>
+                    <p class="host-ip">192.168.30.10</p>
+                    <p class="host-os">Debian 12</p>
+                    <p class="host-role">Load Balancer HAProxy répartissant la charge sur les serveurs www3 et www4.</p>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p class="about-brief">Théo Cayeux - Étudiant BTS SIO SISR, passionné par l'administration des systèmes, l'automatisation et la cybersécurité.</p>
+            <div class="copyright">&copy; 2026 Théo Cayeux</div>
+        </div>
+    </footer>
+</body>
+</html>
