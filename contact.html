@@ -132,9 +132,115 @@
             navLinks.classList.toggle('active');
         }
     </script>
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2026 Théo CAYEUX. Tous droits réservés.</p>
+            <div class="footer-links">
+            </div>
+            <a href="#" class="btn-mentions" onclick="openModal(event)">Mentions Légales</a>
+        </div>
+    </footer>
+
+    <div id="modalMentions" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            
+            <h2>Mentions Légales</h2>
+
+            <div class="modal-body">
+                <h3>1. Informations éditeur</h3>
+                <p><strong>Théo CAYEUX</strong><br>
+                Étudiant BTS SIO Option SISR<br>
+                Lycée René Cassin, Strasbourg</p>
+
+                <h3>2. Hébergement</h3>
+                <p>Ce portfolio est hébergé sur <strong>GitHub Pages</strong>.<br>
+                GitHub Inc., 88 Market Street, San Francisco, CA 94105, USA.</p>
+
+                <h3>3. Contact</h3>
+                <div class="email-box">
+                    <a href="mailto:cayeuxtheo@gmail.com">cayeuxtheo@gmail.com</a>
+                </div>
+
+                <h3>4. Directeur de la publication</h3>
+                <p>Théo CAYEUX</p>
+
+                <h3>5. URL du site</h3>
+                <p><a href="https://theocyx.com" target="_blank">https://theocyx.com</a></p>
+
+                <h3>6. Propriété intellectuelle</h3>
+                <p>Tous les contenus de ce portfolio sont la propriété exclusive de Théo CAYEUX.</p>
+
+                <h3>7. Données personnelles</h3>
+                <p>Aucune donnée personnelle n'est collectée.</p>
+				
+				<h3>8. Responsabilité</h3>
+                <p>Les liens externes ouvrant vers d'autres sites ne sont pas sous la responsabilité de l'auteur. Le contenu est mis à jour régulièrement mais l'auteur ne peut être tenu responsable d'éventuelles erreurs.</p>
+            </div>
+            
+            <div class="modal-footer-text">
+                © 2026 Théo CAYEUX
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // --- 1. GESTION DU MENU BURGER ---
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('active');
+        }
+
+        // --- 2. DEFILEMENT FLUIDE (SMOOTH SCROLL) ---
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+
+                if (targetSection) {
+                    const navLinks = document.querySelector('.nav-links');
+                    if (navLinks.classList.contains('active')) {
+                        navLinks.classList.remove('active');
+                    }
+                    const offsetTop = targetSection.offsetTop - 80;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // --- 3. GESTION DE LA MODALE MENTIONS LÉGALES ---
+        const modal = document.getElementById("modalMentions");
+
+        function openModal(e) {
+            if(e) e.preventDefault();
+            modal.style.display = "flex"; // Force l'affichage
+            setTimeout(() => { modal.classList.add('active'); }, 10);
+            document.body.style.overflow = 'hidden'; // Bloque le scroll arrière-plan
+        }
+
+        function closeModal() {
+            modal.classList.remove('active');
+            setTimeout(() => {
+                modal.style.display = "none";
+                document.body.style.overflow = 'auto'; // Réactive le scroll
+            }, 300);
+        }
+
+        // Fermer si on clique en dehors
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+    </script>
 
 </body>
 </html>
+
 
 
 
