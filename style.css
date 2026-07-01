@@ -281,17 +281,17 @@ ul { list-style: none; }
     width: 100%;
     max-width: 600px;
     height: 700px;
-    background-color: #E8E8E8;
-    border-radius: 20px 20px 0 0; /* Rounded top, flat bottom */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--text-secondary);
-    font-size: 1.2rem;
-    background-image: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');
-    background-size: cover;
-    background-position: center;
-    animation: float 6s ease-in-out infinite;
+    border-radius: 20px 20px 0 0;
+    background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460, #533483, #1a1a2e);
+    background-size: 400% 400%;
+    animation: gradientShift 8s ease infinite, float 6s ease-in-out infinite;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 .stat-value {
