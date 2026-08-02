@@ -4,16 +4,19 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Théo Cayeux | Portfolio</title>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛠️</text></svg>">
+    <meta name="description" content="Portfolio de Théo Cayeux, étudiant Administrateur d'Infrastructures Sécurisées, alternant chez SPL Grand Est mobilités.">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%230B0B0C%22/><text x=%2250%22 y=%2272%22 font-size=%2260%22 font-family=%22monospace%22 fill=%22%23fff%22 text-anchor=%22middle%22>T</text></svg>">
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
     <nav class="navbar">
-        <div class="nav-logo"><a href="https://theocyx.com/index.html">THÉO.</a></div>
-        
+        <div class="nav-logo"><a href="index.html">THÉO</a></div>
+
         <button class="menu-toggle" aria-label="Ouvrir le menu" aria-expanded="false">
             <span></span>
             <span></span>
@@ -25,11 +28,12 @@
             <a href="index.html#experience">Parcours</a>
             <a href="index.html#competences">Expertise</a>
             <a href="index.html#formations">Formations</a>
-            <a href="projets.html">Projets & Épreuves</a>
+            <a href="projets.html">Projets &amp; Épreuves</a>
             <a href="contact.html">Contact</a>
             <a href="cv.html" class="nav-cta">Mon CV</a>
         </div>
     </nav>
+    <div class="nav-overlay"></div>
 
     <header class="hero" id="home">
         <div class="hero-split">
@@ -44,16 +48,24 @@
                         <span class="stat-label">Expériences<br>professionnelles</span>
                     </div>
                 </div>
-                
+
                 <h1 class="reveal">Bonjour</h1>
-                
-                <p class="reveal">Je suis Théo Cayeux,<br><strong>Étudiant en 3ème années<br>Administrateur d’Infrastructures Sécurisées</strong><br>en alternance chez SPL Grand Est mobilités.</p>
-                
-                <a href="#about" class="scroll-down-link reveal">Scroll down &darr;</a>
+
+                <p class="reveal">Je suis Théo Cayeux,<br><strong>Étudiant en 3ème année<br>Administrateur d'Infrastructures Sécurisées</strong><br>en alternance chez SPL Grand Est mobilités.</p>
+
+                <a href="#about" class="scroll-down-link reveal">Voir la suite &darr;</a>
             </div>
-            
-            <div class="hero-right">
-                <div class="profile-placeholder reveal-scale"></div>
+
+            <div class="hero-right reveal-right">
+                <div class="hero-terminal" aria-hidden="true">
+                    <div class="term-bar">
+                        <span class="term-dot term-dot--1"></span>
+                        <span class="term-dot term-dot--2"></span>
+                        <span class="term-dot term-dot--3"></span>
+                        <span class="term-path">theo@infra — bash</span>
+                    </div>
+                    <div class="term-body" id="terminal"></div>
+                </div>
             </div>
         </div>
     </header>
@@ -62,7 +74,7 @@
         <div class="about-grid">
             <div class="about-text reveal-left">
                 <h2>À propos</h2>
-                <p>Bientôt en formation d'<strong>Administrateur d’Infrastructures Sécurisées (AIS)</strong> à la <strong>CCI Campus</strong> (1 an), j'aurai le plaisir d'effectuer mon alternance au sein de <strong>SPL Grand Est mobilités</strong> dès septembre. <br><br>Passionné par les infrastructures réseaux, la virtualisation et le support utilisateur, mon approche allie rigueur technique et résolution proactive de problèmes pour assurer la haute disponibilité des services.</p>
+                <p>Bientôt en formation d'<strong>Administrateur d'Infrastructures Sécurisées (AIS)</strong> à la <strong>CCI Campus</strong> (1 an), j'effectuerai mon alternance au sein de <strong>SPL Grand Est mobilités</strong> dès septembre.<br><br>Passionné par les infrastructures réseaux, la virtualisation et le support utilisateur, mon approche allie rigueur technique et résolution proactive de problèmes pour assurer la haute disponibilité des services.</p>
             </div>
             <div class="about-visuals reveal-stagger">
                 <div class="about-card">
@@ -79,42 +91,42 @@
     <section id="experience" class="experience-section">
         <div class="section-header reveal">
             <span class="eyebrow">Expériences</span>
-            <h2>Explore Mon Parcours</h2>
+            <h2>Explore mon parcours</h2>
         </div>
-        
+
         <div class="experience-list reveal-stagger">
 
             <div class="exp-row">
                 <div class="exp-role">
                     <h3>Alternant Admin Infra Sécurisée</h3>
-                    <p>Dès Septembre</p>
+                    <p>Dès septembre</p>
                 </div>
                 <div class="exp-company">
                     <p>SPL Grand Est mobilités</p>
                     <span>Strasbourg • Alternance (1 an)</span>
                 </div>
                 <div class="exp-badge">
-                    <span class="badge dark">Futur</span>
+                    <span class="badge badge--current">À venir</span>
                 </div>
             </div>
-            
+
             <div class="exp-row">
                 <div class="exp-role">
                     <h3>Support IT N2</h3>
-                    <p>Janvier - Février 2026</p>
+                    <p>Janvier – Février 2026</p>
                 </div>
                 <div class="exp-company">
                     <p>IGBMC</p>
-                    <span>Illkirch • Déploiement SDA, Gestion parc</span>
+                    <span>Illkirch • Déploiement SDA, gestion de parc</span>
                 </div>
                 <div class="exp-badge">
-                    <span class="badge">Passé</span>
+                    <span class="badge badge--past">Terminé</span>
                 </div>
             </div>
-            
+
             <div class="exp-row">
                 <div class="exp-role">
-                    <h3>Gestion & Maintenance</h3>
+                    <h3>Gestion &amp; Maintenance</h3>
                     <p>Juin 2025</p>
                 </div>
                 <div class="exp-company">
@@ -122,10 +134,10 @@
                     <span>Strasbourg • Support technique</span>
                 </div>
                 <div class="exp-badge">
-                    <span class="badge">Passé</span>
+                    <span class="badge badge--past">Terminé</span>
                 </div>
             </div>
-            
+
             <div class="exp-row">
                 <div class="exp-role">
                     <h3>Dev Front-End</h3>
@@ -136,13 +148,13 @@
                     <span>Strasbourg • Remise à neuf de site</span>
                 </div>
                 <div class="exp-badge">
-                    <span class="badge">Passé</span>
+                    <span class="badge badge--past">Terminé</span>
                 </div>
             </div>
-            
+
             <div class="exp-row">
                 <div class="exp-role">
-                    <h3>Support & Réparation PC</h3>
+                    <h3>Support &amp; Réparation PC</h3>
                     <p>Novembre 2023</p>
                 </div>
                 <div class="exp-company">
@@ -150,61 +162,79 @@
                     <span>Mundolsheim • Maintenance régionale</span>
                 </div>
                 <div class="exp-badge">
-                    <span class="badge">Passé</span>
+                    <span class="badge badge--past">Terminé</span>
                 </div>
             </div>
-            
+
             <div class="exp-row">
                 <div class="exp-role">
                     <h3>Technicien Réseau</h3>
-                    <p>Mars & Juin 2023</p>
+                    <p>Mars &amp; Juin 2023</p>
                 </div>
                 <div class="exp-company">
                     <p>EINEA</p>
-                    <span>Eu • Refonte salle, Master</span>
+                    <span>Eu • Refonte salle, master</span>
                 </div>
                 <div class="exp-badge">
-                    <span class="badge">Passé</span>
+                    <span class="badge badge--past">Terminé</span>
                 </div>
             </div>
-            
+
         </div>
     </section>
 
     <section id="competences" class="competences-section">
         <div class="section-header center reveal">
-            <span class="eyebrow">Services & Compétences</span>
-            <h2>Domaines d'Expertise</h2>
+            <span class="eyebrow">Services &amp; Compétences</span>
+            <h2>Domaines d'expertise</h2>
         </div>
-        
+
         <div class="works-grid reveal-stagger">
             <div class="work-card">
-                <div class="work-visual" style="background-color: #ebebeb; color: #222;">
-                    🖥️
+                <div class="work-visual work-visual--1">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <rect x="2" y="3" width="20" height="6" rx="1.5"/>
+                        <rect x="2" y="15" width="20" height="6" rx="1.5"/>
+                        <line x1="6" y1="6" x2="6.01" y2="6"/>
+                        <line x1="6" y1="18" x2="6.01" y2="18"/>
+                        <line x1="10" y1="6" x2="18" y2="6"/>
+                        <line x1="10" y1="18" x2="18" y2="18"/>
+                        <line x1="12" y1="9" x2="12" y2="15"/>
+                    </svg>
                 </div>
                 <div class="work-info">
-                    <h3>Administration & Gestion</h3>
-                    <p>Windows Server, Intune, Mosyle, GLPI, Meraki</p>
+                    <h3>Administration &amp; Gestion</h3>
+                    <p>Windows Server · Intune · Mosyle · GLPI · Meraki</p>
                 </div>
             </div>
-            
+
             <div class="work-card">
-                <div class="work-visual" style="background-color: #E8E8E8; color: #222;">
-                    ☁️
+                <div class="work-visual work-visual--2">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <polygon points="12 2 22 7 12 12 2 7 12 2"/>
+                        <polyline points="2 12 12 17 22 12"/>
+                        <polyline points="2 17 12 22 22 17"/>
+                    </svg>
                 </div>
                 <div class="work-info">
-                    <h3>Virtualisation & Systèmes</h3>
-                    <p>Proxmox, VMware, Hyper-V, Debian</p>
+                    <h3>Virtualisation &amp; Systèmes</h3>
+                    <p>Proxmox · VMware · Hyper-V · Debian</p>
                 </div>
             </div>
-            
+
             <div class="work-card">
-                <div class="work-visual" style="background-color: #E0E0E0; color: #222;">
-                    🛠️
+                <div class="work-visual work-visual--3">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M5 3v6a3 3 0 0 0 3 3h1v6a3 3 0 0 0 6 0v-4"/>
+                        <line x1="3" y1="3" x2="7" y2="3"/>
+                        <path d="M16 12h3a2 2 0 0 1 2 2v3"/>
+                        <circle cx="12" cy="20" r="2"/>
+                        <line x1="9" y1="12" x2="16" y2="12"/>
+                    </svg>
                 </div>
                 <div class="work-info">
-                    <h3>Infra Physique & Support</h3>
-                    <p>Brassage, Fibre Optique, Maintenance</p>
+                    <h3>Infra physique &amp; Support</h3>
+                    <p>Brassage · Fibre optique · Maintenance</p>
                 </div>
             </div>
         </div>
@@ -212,43 +242,47 @@
 
     <section id="formations" class="insights-section">
         <div class="section-header center reveal">
-            <span class="eyebrow">Parcours Académique</span>
-            <h2>Formations & Certifications</h2>
+            <span class="eyebrow">Parcours académique</span>
+            <h2>Formations</h2>
         </div>
-        
+
         <div class="insights-grid reveal-stagger">
-            
+
             <div class="insight-card">
-                <span class="badge">Futur</span>
+                <span class="badge badge--current">À venir</span>
                 <h3>Formation AIS</h3>
                 <p>2026 – 2027 • CCI Campus<br>Admin d'Infrastructures Sécurisées<br>Alternant chez SPL Grand Est mobilités</p>
             </div>
-            
+
             <div class="insight-card">
-                <span class="badge dark">Obtenu</span>
+                <span class="badge">Obtenu</span>
                 <h3>BTS SIO SISR</h3>
-                <p>2024-2026 • Lycée René Cassin<br>Solutions d'Infrastructure, Systèmes et Réseaux<br><strong>Moyenne : 15,30/20</strong></p>
+                <p>2024 – 2026 • Lycée René Cassin<br>Solutions d'Infrastructure, Systèmes et Réseaux<br><strong>Moyenne : 15,30/20</strong></p>
             </div>
-            
+
             <div class="insight-card">
-                <span class="badge dark">Obtenu</span>
+                <span class="badge">Obtenu</span>
                 <h3>Bac Pro SN — Option RISC</h3>
                 <p>2021 – 2024 • Lycée Gutenberg<br>Réseaux Informatiques et Systèmes Communicants<br><strong>Mention Très Bien</strong></p>
             </div>
-            
+
         </div>
     </section>
 
     <section id="certifications" class="certifications-section">
         <div class="section-header center reveal">
-            <span class="eyebrow">Parcours Professionnel</span>
+            <span class="eyebrow">Validations externes</span>
             <h2>Certifications</h2>
         </div>
-        
+
         <div class="cert-grid reveal-stagger">
 
             <div class="cert-card">
-                <div class="cert-logo cisco">🌐</div>
+                <div class="cert-logo">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" aria-hidden="true">
+                        <circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18a15 15 0 0 1 0-18"/>
+                    </svg>
+                </div>
                 <div class="cert-info">
                     <span class="cert-issuer">CISCO NetAcad</span>
                     <h3>CCNA 1 — Introduction aux réseaux</h3>
@@ -256,7 +290,11 @@
             </div>
 
             <div class="cert-card">
-                <div class="cert-logo cisco">🔧</div>
+                <div class="cert-logo">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M14.7 6.3a4 4 0 0 0 5 5l-8.4 8.4a2 2 0 0 1-2.8 0l-2.2-2.2a2 2 0 0 1 0-2.8Z"/>
+                    </svg>
+                </div>
                 <div class="cert-info">
                     <span class="cert-issuer">CISCO NetAcad</span>
                     <h3>Adressage réseau &amp; dépannage de base</h3>
@@ -264,7 +302,11 @@
             </div>
 
             <div class="cert-card">
-                <div class="cert-logo storm">🛡️</div>
+                <div class="cert-logo">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M12 3l7 3v5c0 4.4-2.9 8.4-7 10c-4.1-1.6-7-5.6-7-10V6Z"/>
+                    </svg>
+                </div>
                 <div class="cert-info">
                     <span class="cert-issuer">Stormshield</span>
                     <h3>CSNA — Certified Stormshield Network Administrator</h3>
@@ -272,15 +314,24 @@
             </div>
 
             <div class="cert-card">
-                <div class="cert-logo google">🎓</div>
+                <div class="cert-logo">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M2 8l10-4l10 4l-10 4Z"/><path d="M6 10v5c0 1.7 2.7 3 6 3s6-1.3 6-3v-5"/>
+                    </svg>
+                </div>
                 <div class="cert-info">
                     <span class="cert-issuer">Google</span>
-                    <h3>IT Support — Certificat Professionnel</h3>
+                    <h3>IT Support — Certificat professionnel</h3>
                 </div>
             </div>
 
             <div class="cert-card">
-                <div class="cert-logo cnil">⚖️</div>
+                <div class="cert-logo">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <line x1="12" y1="4" x2="12" y2="21"/><line x1="6" y1="21" x2="18" y2="21"/>
+                        <path d="M4 8h16M4 8l-2 6h4Zm16 0l2 6h-4Z"/>
+                    </svg>
+                </div>
                 <div class="cert-info">
                     <span class="cert-issuer">CNIL</span>
                     <h3>RGPD — Protection des données personnelles</h3>
@@ -288,7 +339,11 @@
             </div>
 
             <div class="cert-card">
-                <div class="cert-logo anssi">🔒</div>
+                <div class="cert-logo">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/>
+                    </svg>
+                </div>
                 <div class="cert-info">
                     <span class="cert-issuer">ANSSI</span>
                     <h3>MOOC — Sécurité numérique</h3>
@@ -296,7 +351,11 @@
             </div>
 
             <div class="cert-card">
-                <div class="cert-logo pix">⭐</div>
+                <div class="cert-logo">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <polygon points="12 3 14.6 9 21 9.6 16.2 13.8 17.6 20 12 16.8 6.4 20 7.8 13.8 3 9.6 9.4 9 12 3"/>
+                    </svg>
+                </div>
                 <div class="cert-info">
                     <span class="cert-issuer">PIX</span>
                     <h3>+600 points — Compétences numériques</h3>
@@ -310,56 +369,58 @@
         <div class="banner-content reveal-scale">
             <h2>Un projet ? Une idée ?</h2>
             <p>N'hésitez pas à me contacter pour échanger sur nos passions communes.</p>
-            <a href="mailto:cayeuxtheo@gmail.com" class="btn-cta">Me contacter &nearr;</a>
+            <a href="contact.html" class="btn-cta">Me contacter &nearr;</a>
         </div>
     </section>
 
     <footer class="footer">
         <div class="footer-content">
             <p>&copy; 2026 Théo CAYEUX. Tous droits réservés.</p>
-            <div class="footer-links">
-            </div>
-            <a href="#" class="btn-mentions" onclick="openModal(event)">Mentions Légales</a>
+            <div class="footer-links"></div>
+            <a href="#" class="btn-mentions" onclick="openModal(event)">Mentions légales</a>
         </div>
     </footer>
 
     <div id="modalMentions" class="modal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal()">&times;</span>
-            
-            <h2>Mentions Légales</h2>
+
+            <h2>Mentions légales</h2>
 
             <div class="modal-body">
-                <h3>1. Informations éditeur</h3>
-                <p><strong>Théo CAYEUX</strong><br>
-                Étudiant BTS SIO Option SISR<br>
-                Lycée René Cassin, Strasbourg</p>
+                <h3>1. Éditeur du site</h3>
+                <p><strong>Théo CAYEUX</strong> — personne physique éditant un site personnel à caractère non commercial.<br>
+                Étudiant en formation Administrateur d'Infrastructures Sécurisées (AIS) au CCI Campus, en alternance chez SPL Grand Est mobilités.</p>
 
-                <h3>2. Hébergement</h3>
-                <p>Ce portfolio est hébergé sur <strong>GitHub Pages</strong>.<br>
-                GitHub Inc., 88 Market Street, San Francisco, CA 94105, USA.</p>
+                <h3>2. Directeur de la publication</h3>
+                <p>Théo CAYEUX</p>
 
                 <h3>3. Contact</h3>
                 <div class="email-box">
                     <a href="mailto:cayeuxtheo@gmail.com">cayeuxtheo@gmail.com</a>
                 </div>
 
-                <h3>4. Directeur de la publication</h3>
-                <p>Théo CAYEUX</p>
+                <h3>4. Hébergeur</h3>
+                <p><strong>GitHub, Inc.</strong> (service GitHub Pages)<br>
+                88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis<br>
+                Téléphone : +1 877 448 4820</p>
 
                 <h3>5. URL du site</h3>
-                <p><a href="https://theocyx.com" target="_blank">https://theocyx.com</a></p>
+                <p><a href="https://theocyx.com" target="_blank" rel="noopener">https://theocyx.com</a></p>
 
                 <h3>6. Propriété intellectuelle</h3>
-                <p>Tous les contenus de ce portfolio sont la propriété exclusive de Théo CAYEUX.</p>
+                <p>Sauf mention contraire, l'ensemble des contenus de ce portfolio (textes, images, code) est la propriété exclusive de Théo CAYEUX. Toute reproduction ou réutilisation, totale ou partielle, est interdite sans autorisation écrite préalable. Les marques, logos et documents de tiers éventuellement cités restent la propriété de leurs détenteurs respectifs.</p>
 
-                <h3>7. Données personnelles</h3>
-                <p>Aucune donnée personnelle n'est collectée.</p>
-				
-				<h3>8. Responsabilité</h3>
-                <p>Les liens externes ouvrant vers d'autres sites ne sont pas sous la responsabilité de l'auteur. Le contenu est mis à jour régulièrement mais l'auteur ne peut être tenu responsable d'éventuelles erreurs.</p>
+                <h3>7. Données personnelles et cookies</h3>
+                <p>Ce site ne comporte aucun formulaire, aucun cookie et aucun outil de mesure d'audience : l'éditeur ne collecte donc aucune donnée personnelle. L'hébergeur GitHub peut enregistrer des données de connexion (adresse IP, journaux techniques) pour assurer la sécurité et le bon fonctionnement du service. Conformément au RGPD, vous pouvez exercer vos droits d'accès, de rectification et d'effacement en écrivant à l'adresse e-mail ci-dessus.</p>
+
+                <h3>8. Responsabilité</h3>
+                <p>Les informations publiées sont fournies à titre indicatif et mises à jour régulièrement ; l'éditeur ne saurait être tenu responsable d'éventuelles erreurs ou omissions. Les sites tiers accessibles via des liens externes ne relèvent pas de la responsabilité de l'éditeur.</p>
+
+                <h3>9. Droit applicable</h3>
+                <p>Le présent site et les présentes mentions légales sont soumis au droit français.</p>
             </div>
-            
+
             <div class="modal-footer-text">
                 © 2026 Théo CAYEUX
             </div>
