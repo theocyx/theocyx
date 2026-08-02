@@ -168,10 +168,12 @@
         }, duration + 400);
     }
 
+    // Ramène '/contact', '/contact.html' et 'contact' à une même clé,
+    // les URL du site étant servies sans extension.
     function normalizedPath(p) {
-        if (!p || p === '/') return 'index.html';
-        const file = p.split('/').pop();
-        return file || 'index.html';
+        if (!p || p === '/') return 'index';
+        const file = p.split('/').pop().replace(/\.html?$/i, '');
+        return file || 'index';
     }
 
     document.querySelectorAll('a[href*="#"]').forEach(anchor => {
@@ -295,9 +297,14 @@
         }
 
         if (url.origin !== window.location.origin) return false;
-        // Uniquement les pages du site : ni PDF, ni pptx, ni mailto
-        if (!/(\.html?|\/)$/i.test(url.pathname)) return false;
-        if (url.pathname === window.location.pathname) return false;
+
+        // Écarte les fichiers (PDF, pptx, xlsx…) : on ne garde que les pages,
+        // qu'elles soient servies avec ou sans extension .html
+        const file = url.pathname.split('/').pop();
+        if (/\.[a-z0-9]+$/i.test(file) && !/\.html?$/i.test(file)) return false;
+
+        // Même page : c'est le scroll vers l'ancre qui gère, pas la transition
+        if (normalizedPath(url.pathname) === normalizedPath(window.location.pathname)) return false;
 
         return true;
     }
