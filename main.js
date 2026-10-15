@@ -510,7 +510,7 @@
             { out: 'Théo Cayeux — Admin d\'Infrastructures Sécurisées' },
             { cmd: 'systemctl status alternance' },
             { out: '● SPL Grand Est mobilités · Strasbourg' },
-            { out: '  démarrage : septembre 2026' },
+            { out: '  active (running) depuis septembre 2026' },
             { cmd: 'cat formation.txt' },
             { out: 'CCI Campus · AIS · 2026–2027' }
         ];
